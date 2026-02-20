@@ -93,6 +93,10 @@ public:
     void scratch() {
         cout << name << " is scratching." << endl;
     }
+
+    void drinkMilk() {
+        cout << name << " is drinking milk." << endl;
+    }
 };
 
 class Bird : public Animal {
@@ -181,6 +185,16 @@ int main() {
         animals[i]->printInfo();
         animals[i]->makeSound();
         animals[i]->move();
+
+        if (Cat* cat = dynamic_cast<Cat*>(animals[i])) {
+            cat->scratch();
+            cat->drinkMilk();
+        }
+
+        else if (Eagle* eagle = dynamic_cast<Eagle*>(animals[i])) {
+            eagle->hunt();
+            eagle->soar();
+        }
 
         delete animals[i];
     }
