@@ -254,7 +254,7 @@ public:
 int main() {
 
 	Animal* animals[] = {
-		new Cat("Alexa", 5, 4.5),
+		new Cat("Denis", 5, 4.5),
 		new Eagle("Storm", 3, 6.0),
 		new Dog("Rex", 4, 20.0, true, 12, "German Shepherd", true),
 		new PersianCat("Fluffy", 2, 3.5, true, 17, false, 6.0, 13.0)
@@ -268,10 +268,7 @@ int main() {
 		animals[i]->makeSound();
 		animals[i]->move();
 
-		if (Cat* c = dynamic_cast<Cat*>(animals[i])) {
-			c->scratch();
-		}
-		else if (Dog* d = dynamic_cast<Dog*>(animals[i])) {
+		if (Dog* d = dynamic_cast<Dog*>(animals[i])) {
 			d->guard();
 		}
 		else if (Eagle* e = dynamic_cast<Eagle*>(animals[i])) {
@@ -279,6 +276,9 @@ int main() {
 		}
 		else if (PersianCat* p = dynamic_cast<PersianCat*>(animals[i])) {
 			p->groom();
+		}
+		else if (Cat* c = dynamic_cast<Cat*>(animals[i])) {
+			c->scratch();
 		}
 
 		delete animals[i];
